@@ -1,0 +1,472 @@
+/* ========================================
+   FLOF DESIGN SYSTEM (PROFILE, CART, CHECKOUT)
+   ======================================== */
+
+:root {
+    --warm-50: #fafaf9;
+    --warm-100: #f5f5f4;
+    --warm-200: #e7e5e4;
+    --warm-300: #d6d3d1;
+    --warm-400: #a8a29e;
+    --warm-500: #78716c;
+    --warm-700: #44403c;
+    --warm-800: #292524;
+    --warm-900: #1c1917;
+    
+    --jotun-teal: #12866f;
+    --jotun-teal-light: rgba(18, 134, 111, 0.1);
+    
+    --radius-xl: 0.75rem;
+    --radius-2xl: 1rem;
+    
+    --shadow-flof: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-flof-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body[data-theme="dark"] {
+    --warm-50: #1c1917;
+    --warm-100: #292524;
+    --warm-200: #44403c;
+    --warm-300: #57534e;
+    --warm-400: #a8a29e;
+    --warm-500: #d6d3d1;
+    --warm-700: #e7e5e4;
+    --warm-800: #f5f5f4;
+    --warm-900: #fafaf9;
+}
+
+/* Base Layout Grids */
+.flof-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 24px;
+}
+
+.flof-grid-12 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .flof-grid-12 {
+        grid-template-columns: repeat(12, 1fr);
+    }
+    .flof-col-4 {
+        grid-column: span 4 / span 4;
+    }
+    .flof-col-5 {
+        grid-column: span 5 / span 5;
+    }
+    .flof-col-7 {
+        grid-column: span 7 / span 7;
+    }
+    .flof-col-8 {
+        grid-column: span 8 / span 8;
+    }
+}
+
+.flof-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+}
+
+@media (min-width: 640px) {
+    .flof-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .flof-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Cards & Surfaces */
+.flof-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--warm-200);
+    border-radius: var(--radius-2xl);
+    padding: 24px;
+    box-shadow: var(--shadow-flof);
+}
+
+.flof-card-hover {
+    transition: all 0.3s ease;
+}
+
+.flof-card-hover:hover {
+    background-color: var(--warm-50);
+    border-color: var(--warm-300);
+    box-shadow: var(--shadow-flof-md);
+}
+
+/* Sidebar Styles */
+.flof-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.flof-avatar-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--warm-100);
+    padding-bottom: 20px;
+}
+
+.flof-avatar {
+    height: 56px;
+    width: 56px;
+    background-color: var(--jotun-teal-light);
+    color: var(--jotun-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.125rem;
+    border: 1px solid var(--jotun-teal-light);
+    flex-shrink: 0;
+}
+
+.flof-user-info h2 {
+    font-family: var(--font-display);
+    font-weight: bold;
+    font-size: 1.125rem;
+    color: var(--warm-900);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.flof-user-info span {
+    font-size: 0.75rem;
+    color: var(--warm-500);
+    font-family: monospace;
+    display: block;
+    margin-top: 2px;
+}
+
+.flof-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .flof-nav {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.flof-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    transition: all 0.2s;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--warm-700);
+}
+
+@media (min-width: 1024px) {
+    .flof-nav-link {
+        justify-content: flex-start;
+        text-align: left;
+    }
+}
+
+.flof-nav-link:hover {
+    background-color: var(--warm-100);
+    color: var(--warm-900);
+}
+
+.flof-nav-link.active {
+    background-color: var(--warm-900);
+    color: white;
+    box-shadow: var(--shadow-flof);
+}
+
+.flof-nav-link.admin-link {
+    grid-column: span 2;
+    background-color: var(--warm-50);
+    border: 1px solid var(--warm-200);
+    justify-content: space-between;
+}
+
+.flof-nav-link.admin-link:hover {
+    background-color: var(--warm-900);
+    color: white;
+}
+
+.flof-nav-link.logout-link {
+    grid-column: span 2;
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.02);
+    border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.flof-nav-link.logout-link:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Order History Specifics */
+.flof-section-title {
+    font-family: var(--font-display);
+    font-weight: bold;
+    font-size: 1.125rem;
+    border-bottom: 1px solid var(--warm-100);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    color: #88734C; /* Accent color from FLOF */
+}
+
+.flof-order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.flof-order-card {
+    padding: 20px;
+    border: 1px solid var(--warm-200);
+    border-radius: var(--radius-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: rgba(250, 250, 249, 0.2);
+}
+
+@media (min-width: 640px) {
+    .flof-order-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.flof-order-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.75rem;
+}
+
+.flof-order-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.flof-order-id {
+    font-weight: bold;
+    font-family: monospace;
+    color: var(--jotun-teal);
+    font-size: 0.875rem;
+}
+
+.flof-order-items {
+    color: var(--warm-800);
+    margin-top: 6px;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.flof-order-date {
+    font-size: 0.625rem;
+    color: var(--warm-500);
+    margin-top: 4px;
+    font-family: monospace;
+}
+
+.flof-order-total {
+    text-align: left;
+    font-family: monospace;
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .flof-order-total {
+        text-align: right;
+    }
+}
+
+.flof-order-total span:first-child {
+    font-size: 0.625rem;
+    color: var(--warm-500);
+    display: block;
+}
+
+.flof-order-total span:last-child {
+    font-weight: bold;
+    font-size: 1rem;
+    color: var(--warm-900);
+}
+
+/* Badges */
+.flof-badge {
+    padding: 2px 8px;
+    font-size: 0.625rem;
+    font-weight: bold;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+}
+
+.flof-badge.completed {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.flof-badge.processing {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.flof-badge.pending {
+    background-color: rgba(113, 113, 122, 0.1);
+    color: #71717a;
+}
+
+.flof-badge.cancelled {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* Input Fields (FLOF Style) */
+.flof-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--warm-200);
+    background-color: var(--warm-50);
+    border-radius: var(--radius-xl);
+    font-size: 0.875rem;
+    color: var(--warm-900);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.flof-input:focus {
+    outline: none;
+    border-color: #88734C;
+    background-color: var(--bg-card);
+}
+
+.flof-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: var(--warm-500);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.flof-form-group {
+    margin-bottom: 20px;
+}
+
+.flof-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-xl);
+    font-weight: bold;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.flof-btn-primary {
+    background-color: var(--warm-900);
+    color: white;
+}
+
+.flof-btn-primary:hover {
+    background-color: var(--warm-800);
+}
+
+.flof-btn-accent {
+    background-color: #88734C;
+    color: white;
+}
+
+.flof-btn-accent:hover {
+    background-color: #72603f;
+}
+
+/* Cart Specific Styles */
+.flof-cart-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border-bottom: 1px solid var(--warm-100);
+}
+
+.flof-cart-item:last-child {
+    border-bottom: none;
+}
+
+.flof-cart-img {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-xl);
+    object-fit: cover;
+    border: 1px solid var(--warm-100);
+    background-color: var(--warm-50);
+    flex-shrink: 0;
+}
+
+.flof-qty-ctrl {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--warm-200);
+    border-radius: var(--radius-xl);
+    background-color: var(--warm-50);
+    overflow: hidden;
+}
+
+.flof-qty-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warm-500);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.flof-qty-btn:hover {
+    color: var(--warm-900);
+    background-color: var(--warm-100);
+}
+
+.flof-qty-val {
+    padding: 0 8px;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: var(--warm-900);
+    min-width: 24px;
+    text-align: center;
+}

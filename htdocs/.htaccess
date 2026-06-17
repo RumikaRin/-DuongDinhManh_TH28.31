@@ -1,0 +1,8 @@
+# Chặn truy cập trực tiếp vào các tệp nhạy cảm và cơ sở dữ liệu
+<FilesMatch "\.(sql|bak|log)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^(database_migrate|check_database)\.php$">
+    Require all denied
+</FilesMatch>

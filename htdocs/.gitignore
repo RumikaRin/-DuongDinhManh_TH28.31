@@ -1,0 +1,67 @@
+# PHP
+*.log
+*.tmp
+*.cache
+*.swp
+*.swo
+*~
+
+# Database
+*.sql
+*.db
+*.sqlite
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# XAMPP specific
+xampp/
+htdocs/temp/
+htdocs/logs/
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Composer
+vendor/
+composer.lock
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Temporary files
+temp/
+tmp/
+cache/
+
+# Sensitive files
+config/database.php
+includes/config.php
+
+# Large files that exceed GitHub limits
+admin/img/sp/Gargantua_BGM.mp4
+admin/sp/Gargantua_BGM.mp4
+img/sp/Gargantua_BGM.mp4
